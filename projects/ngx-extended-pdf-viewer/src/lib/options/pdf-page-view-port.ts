@@ -14,7 +14,7 @@ export interface PageViewport {
    * The original, un-scaled, viewport dimensions.
    * @type {Object}
    */
-  get rawDims(): Object;
+  rawDims: Object;
 
   /**
    * Converts PDF point to the viewport coordinates. For examples, useful for

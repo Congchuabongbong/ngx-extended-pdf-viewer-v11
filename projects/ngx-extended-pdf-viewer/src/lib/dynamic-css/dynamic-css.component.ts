@@ -1,6 +1,6 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, Input, OnChanges, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { PdfBreakpoints } from '../responsive-visibility';
+import { PdfBreakpoints } from '../responsive-visibility.pipe';
 import { addTrustedHTML } from '../theme/sanitized-css-injector';
 
 @Component({

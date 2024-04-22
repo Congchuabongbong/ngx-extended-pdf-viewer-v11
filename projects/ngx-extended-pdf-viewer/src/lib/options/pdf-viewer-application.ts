@@ -93,17 +93,17 @@ export interface PDFWorker {
    * Promise for worker initialization completion.
    * @type {Promise<void>}
    */
-  get promise(): Promise<void>;
+  promise: Promise<void>;
   /**
    * The current `workerPort`, when it exists.
    * @type {Worker}
    */
-  get port(): Worker;
+  port: Worker;
   /**
    * The current MessageHandler-instance.
    * @type {MessageHandler}
    */
-  get messageHandler(): MessageHandler;
+  messageHandler: MessageHandler;
   _initializeFromPort(port: any): void;
   _initialize(): void;
   _setupFakeWorker(): void;
@@ -492,7 +492,7 @@ export interface RenderTask {
    * Promise for rendering task completion.
    * @type {Promise<void>}
    */
-  get promise(): Promise<void>;
+  promise: Promise<void>;
   /**
    * Cancels the rendering task. If the task is currently rendering it will
    * not be cancelled until graphics pauses with a timeout. The promise that
@@ -505,7 +505,7 @@ export interface RenderTask {
    * Whether form fields are rendered separately from the main operatorList.
    * @type {boolean}
    */
-  get separateAnnots(): boolean;
+  separateAnnots: boolean;
 }
 
 /**
@@ -621,24 +621,24 @@ export interface PDFPageProxy {
   /**
    * @type {number} Page number of the page. First page is 1.
    */
-  get pageNumber(): number;
+  pageNumber: number;
   /**
    * @type {number} The number of degrees the page is rotated clockwise.
    */
-  get rotate(): number;
+  rotate: number;
   /**
    * @type {RefProxy | null} The reference that points to this page.
    */
-  get ref(): RefProxy | null;
+  ref: RefProxy | null;
   /**
    * @type {number} The default size of units in 1/72nds of an inch.
    */
-  get userUnit(): number;
+  userUnit: number;
   /**
    * @type {Array<number>} An array of the visible portion of the PDF page in
    *   user space units [x1, y1, x2, y2].
    */
-  get view(): number[];
+  view: number[];
   /**
    * @param {GetViewportParameters} params - Viewport parameters.
    * @returns {PageViewport} Contains 'width' and 'height' properties
@@ -659,7 +659,7 @@ export interface PDFPageProxy {
   /**
    * @type {boolean} True if only XFA form.
    */
-  get isPureXfa(): boolean;
+  isPureXfa: boolean;
   /**
    * @returns {Promise<Object | null>} A promise that is resolved with
    *   an {Object} with a fake DOM object (a tree structure where elements
@@ -749,7 +749,7 @@ export interface PDFPageProxy {
   /**
    * @type {Object} Returns page stats, if enabled; returns `null` otherwise.
    */
-  get stats(): Object;
+  stats: Object;
 }
 
 /**
@@ -783,21 +783,15 @@ export interface PDFDocumentLoadingTask {
    */
   onProgress: Function;
   /**
-   * Callback for when an unsupported feature is used in the PDF document.
-   * The callback receives an {@link UNSUPPORTED_FEATURES} argument.
-   * @type {function}
-   */
-  set onUnsupportedFeature(arg: Function | null);
-  /**
    * @type {function | null} The current callback used with unsupported
    * features.
    */
-  get onUnsupportedFeature(): Function | null;
+  onUnsupportedFeature: Function | null;
   /**
    * Promise for document loading task completion.
    * @type {Promise<PDFDocumentProxy>}
    */
-  get promise(): Promise<PDFDocumentProxy>;
+  promise: Promise<PDFDocumentProxy>;
   /**
    * Abort all network requests and destroy the worker.
    * @returns {Promise<void>} A promise that is resolved when destruction is
@@ -811,29 +805,29 @@ export interface PDFDocumentProxy {
   /**
    * @type {AnnotationStorage} Storage for annotation data in forms.
    */
-  get annotationStorage(): AnnotationStorage;
+  annotationStorage: AnnotationStorage;
   /**
    * @type {number} Total number of pages in the PDF file.
    */
-  get numPages(): number;
+  numPages: number;
   /**
    * @type {Array<string, string|null>} A (not guaranteed to be) unique ID to
    *   identify the PDF document.
    *   NOTE: The first element will always be defined for all PDF documents,
    *   whereas the second element is only defined for *modified* PDF documents.
    */
-  get fingerprints(): string[];
+  fingerprints: string[];
   /**
    * @type {boolean} True if only XFA form.
    */
-  get isPureXfa(): boolean;
+  isPureXfa: boolean;
   /**
    * NOTE: This is (mostly) intended to support printing of XFA forms.
    *
    * @type {Object | null} An object representing a HTML tree structure
    *   to render the XFA, or `null` when no XFA form exists.
    */
-  get allXfaHtml(): Object | null;
+  allXfaHtml: Object | null;
   /**
    * @param {number} pageNumber - The page number to get. The first page is 1.
    * @returns {Promise<PDFPageProxy>} A promise that is resolved with
@@ -1024,11 +1018,11 @@ export interface PDFDocumentProxy {
    * @type {DocumentInitParameters} A subset of the current
    *   {DocumentInitParameters}, which are needed in the viewer.
    */
-  get loadingParams(): DocumentInitParameters;
+  loadingParams: DocumentInitParameters;
   /**
    * @type {PDFDocumentLoadingTask} The loadingTask for the current document.
    */
-  get loadingTask(): PDFDocumentLoadingTask;
+  loadingTask: PDFDocumentLoadingTask;
   /**
    * @returns {Promise<Object<string, Array<Object>> | null>} A promise that is
    *   resolved with an {Object} containing /AcroForm field data for the JS

@@ -45,17 +45,18 @@ export interface AnnotationStorage {
    * @param {Object} obj
    */
   setAll(obj: Object): void;
-  get size(): number;
+  size: number;
   resetModified(): void;
   /**
    * @returns {PrintAnnotationStorage}
    */
-  get print(): PrintAnnotationStorage;
+  print: PrintAnnotationStorage;
   /**
    * PLEASE NOTE: Only intended for usage within the API itself.
    * @ignore
    */
-  get serializable(): Map<any, any> | null;
+  serializable: Map<any, any> | null;
+
 }
 /**
  * A special `AnnotationStorage` for use during printing, where the serializable
@@ -67,5 +68,5 @@ export interface PrintAnnotationStorage extends AnnotationStorage {
    * PLEASE NOTE: Only intended for usage within the API itself.
    * @ignore
    */
-  get serializable(): null;
+  serializable: null;
 }

@@ -16,7 +16,7 @@ export interface TextLayerBuilder {
   accessibilityManager: any;
   isOffscreenCanvasSupported: boolean;
   div: HTMLDivElement;
-  get numTextDivs(): number;
+  numTextDivs: number;
   /**
    * Renders the text layer.
    * @param {PageViewport} viewport
