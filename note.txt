@@ -1,0 +1,12 @@
+*Note by Binhnv:
+#Modified compatible width version 11
+=>Not support run script in package.json.
+=>Delete accessor in interface in folder options.
+=>Config tsconfig.lib.json
+=>run build exactly version angular width version angular using package
+#How to build
+=>Run auto build from ngx-extended-pdf-viewer
+=>Copy all file pdf into assets folder
+=>ng build ngx-extended-pdf-viewer
+=>cd ./dist/ngx-extended-pdf-viewer
+=>npm pack
